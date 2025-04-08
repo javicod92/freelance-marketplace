@@ -1,13 +1,42 @@
-# Node
-node_modules/
-dist/
+# Node modules en todos los servicios y frontend
+**/node_modules/
 
-# Env
+# Archivos de entorno
+**/.env
+**/.env.*.local
 .env
 
-# Docker
-*.local
-docker-compose.override.yml
+# Archivos de base de datos de Prisma
+**/prisma/dev.db
+**/prisma/dev.db-journal
+**/.prisma/
 
-# Prisma
-prisma/dev.db
+# Logs
+**/*.log
+logs/
+*.log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Salidas de build
+**/dist/
+**/build/
+
+# VSCode
+.vscode/
+
+# Docker
+docker-compose.override.yml
+*.local
+
+# PNPM
+.pnpm-store/
+
+# Cobertura de tests
+coverage/
+
+# SQLite files (por si se usan en desarrollo)
+**/*.sqlite
+**/*.sqlite-journal

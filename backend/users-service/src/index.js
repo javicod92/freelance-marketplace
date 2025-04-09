@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Rutas
 app.get("/", async (req, res) => {
-  res.json("Probando desde la perla");
+  res.json("El servicio funciona correctamente");
 });
 
 app.use("/api/auth", authRoutes);

@@ -81,3 +81,44 @@ export const login = async (req, res) => {
     res.status(500).json({ error: "Error interno del servidor" });
   }
 };
+
+export const updateProfile = async (req, res) => {
+  const { name, email } = req.body;
+
+  try {
+    const updatedUser = await prisma.user.update({
+      where: { id: req.user.id },
+      data: { name, email },
+    });
+
+    res.json({ message: "Perfil actualizado", user: updatedUser });
+  } catch (err) {
+    res.status(500).json({ error: "Error al actualizar perfil" });
+  }
+};
+
+export const deleteAccount = async (req, res) => {
+  try {
+    await prisma.user.delete({ where: { id: req.user.id } });
+    res.json({ message: "Cuenta eliminada correctamente" });
+  } catch (err) {
+    res.status(500).json({ error: "Error al eliminar la cuenta" });
+  }
+};
+
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        email: true,
+        role: true,
+        createdAt: true,
+      },
+    });
+
+    res.json({ users });
+  } catch (err) {
+    res.status(500).json({ error: "Error al obtener usuarios" });
+  }
+};

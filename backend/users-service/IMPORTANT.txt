@@ -1,0 +1,29 @@
+En modo desarrollo dentro en mi package.json dentro del script debo ejecutar esto:
+
+"scripts": {
+    "dev": "nodemon --exec node src/index.js"
+},
+
+Esto es para que el servidor se reinicie automaticamente en cada cambio. En la creacion del dockerfile
+ya debo usar otro comando que es el final: Este comando solo ejecuta el servidor.
+
+"scripts": {
+  "dev": "node src/index.js"
+}
+
+
+** En modo desarrollo en mi archivo docker-compose.yml uso esto así:
+volumes:
+      - ./backend/users-service/src:/app/src
+      - ./backend/users-service/.env:/app/.env
+      - ./backend/users-service/package.json:/app/package.json
+Esto le está diciendo a docker, por ejemplo en mi primera linea, que todos los cambios "locales" realizados, se sincronicen directamente
+en mi contenedor de docker sin tener que dar de baja el servicio y reconstruirlo de nuevo para que los nuevos cambios tengan efecto.
+Es así que en mi local ./backend/users-service/src, todos los cambios realizados, afectan inmediatamente a mi contenedor docker :/app/src 
+porque yo en mi Dockerfile estoy guardando todo dentro de app/. Estos cambios impactan en desarrollo además gracias a nodemon que lo vengo usando
+y debo noner en el package.json este script visto mas arriba:
+"scripts": {
+    "dev": "nodemon --exec node src/index.js"
+},
+
+En produccion, este "volumes" debe ser eliminado y no se debe usar "dev" para correr mi servidor sinó "start"

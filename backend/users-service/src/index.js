@@ -8,7 +8,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
 app.use(express.json());
 
 // Rutas
@@ -16,7 +15,7 @@ app.get("/", async (req, res) => {
   res.send("🟢 El servicio funciona correctamente");
 });
 
-app.use("/api/auth", authRoutes);
+app.use("/auth", authRoutes);
 
 // Servidor
 app.listen(PORT, () => {

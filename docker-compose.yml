@@ -33,6 +33,21 @@ services:
       - ./backend/users-service/.env:/app/.env
       - ./backend/users-service/package.json:/app/package.json
 
+  api-gateway:
+    container_name: api-gateway
+    build:
+      context: ./backend/api-gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - users-service
+    networks:
+      - freelance-network
+    volumes:
+      - ./backend/api-gateway/src:/app/src
+    env_file:
+      - ./backend/api-gateway/.env
+
 volumes:
   postgres-data:
 

@@ -22,6 +22,7 @@ services:
       - postgres
     ports:
       - "3001:3001"
+      - "5555:5555"
     working_dir: /app
     command: pnpm dev
     env_file:

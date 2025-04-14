@@ -22,8 +22,8 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.send("Servicio de API-Gateway");
+app.get("/", (_req, res) => {
+  res.send("🟢 Servicio de API-GATEWAY funcionando correctamente");
 });
 
 app.listen(PORT, () => {

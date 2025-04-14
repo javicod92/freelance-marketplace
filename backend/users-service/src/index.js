@@ -1,5 +1,4 @@
 import express, { request, response } from "express";
-import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js";
 
@@ -11,8 +10,8 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 
 // Rutas
-app.get("/", async (req, res) => {
-  res.send("🟢 El servicio funciona correctamente");
+app.get("/", async (_req, res) => {
+  res.send("🟢 Servicio de USER-SERVICE funcionando correctamente");
 });
 
 app.use("/auth", authRoutes);

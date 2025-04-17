@@ -44,10 +44,6 @@ services:
       - ./backend/users-service/.env
     networks:
       - freelance-network
-    volumes:
-      - ./backend/users-service/src:/app/src
-      - ./backend/users-service/.env:/app/.env
-      - ./backend/users-service/package.json:/app/package.json
 
   listings-service:
     container_name: listings-service
@@ -56,15 +52,11 @@ services:
     depends_on:
       - listings-db
     ports:
-      - "4002:4002"
+      - "3002:3002"
     working_dir: /app
     command: pnpm dev
     networks:
       - freelance-network
-    volumes:
-      - ./backend/listings-service/src:/app/src
-      - ./backend/listings-service/prisma:/app/prisma
-      - ./backend/listings-service/package.json:/app/package.json
 
   api-gateway:
     container_name: api-gateway

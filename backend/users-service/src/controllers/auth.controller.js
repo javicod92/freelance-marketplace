@@ -2,6 +2,28 @@ import { prisma } from "../prisma/client.js";
 import { hashPassword, comparePasswords } from "../utils/hash.js";
 import { generateToken } from "../utils/jwt.js";
 
+export const getUserById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+      },
+    });
+
+    if (!user) return res.status(404).json({ error: "Usuario no encontrado" });
+
+    res.json(user);
+  } catch (error) {
+    console.error("Error al buscar usuario:", error.message);
+    res.status(500).json({ error: "Error al buscar usuario" });
+  }
+};
+
 export const register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;

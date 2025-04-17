@@ -9,6 +9,10 @@ app.use(express.json());
 
 app.use("/listings", listingsRoutes);
 
+app.get("/", async (_req, res) => {
+  res.send("🟢 Servicio de Listing funcionando correctamente");
+});
+
 const PORT = process.env.PORT || 4002;
 app.listen(PORT, () => {
   console.log(`🟢 Listings service escuchando en http://localhost:${PORT}`);

@@ -1,15 +1,11 @@
 import prisma from "../prisma/client.js";
 
-export const testRoute = async (_req, res) => {
-  const listings = await prisma.listing.findMany();
-  res.json({ listings });
-};
-
 export const getAllListings = async (req, res) => {
   try {
     const listings = await prisma.listing.findMany();
     res.json(listings);
   } catch (error) {
+    console.error("Error al obtener listings:", error);
     res.status(500).json({ error: "Error al obtener listings" });
   }
 };

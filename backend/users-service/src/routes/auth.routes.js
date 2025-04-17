@@ -5,6 +5,7 @@ import {
   updateProfile,
   deleteAccount,
   getAllUsers,
+  getUserById,
 } from "../controllers/auth.controller.js";
 import { authenticateToken } from "../middleware/authMiddleware.js";
 import { validate } from "../middleware/validate.js";
@@ -13,6 +14,7 @@ import { authorizeRole } from "../middleware/roleMiddleware.js";
 
 const router = express.Router();
 
+router.get("/users/:id", getUserById);
 router.post("/register", validate(registerSchema), register);
 router.post("/login", validate(loginSchema), login);
 router.get("/profile", authenticateToken, (req, res) => {

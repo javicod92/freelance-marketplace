@@ -14,7 +14,6 @@ export function authenticateToken(req, res, next) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // mismo secret que en users-service
     console.log(decoded);
     req.user = decoded; // contiene userId, email, role, etc.
-    console.log("token decodificado", decoded);
     next();
   } catch (err) {
     return res.status(403).json({ error: "Token inválido" });

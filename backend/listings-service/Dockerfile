@@ -14,7 +14,7 @@ RUN npm install -g pnpm && pnpm install
 RUN pnpm generate
 
 # Exponemos el puerto
-EXPOSE 4002
+EXPOSE 5002
 
 # Comando de inicio
 CMD ["pnpm", "dev"]

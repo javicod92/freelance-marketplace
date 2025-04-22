@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getListingsWithUsers = async (_req, res) => {
   try {
-    const listingsResponse = await axios.get("http://localhost:3002/listings");
+    const listingsResponse = await axios.get("http://localhost:5002/listing");
     const listings = listingsResponse.data;
 
     console.log("📦 Listings recibidos:", listings);

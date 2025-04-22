@@ -1,5 +1,10 @@
 {
   "name": "freelance-marketplace",
   "private": true,
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "scripts": {
+    "start:api": "cd backend/api-gateway && pnpm dev",
+    "start:listings": "cd backend/listings-service && pnpm dev",
+    "start:users": "cd backend/users-service && pnpm dev"
+  }
 }

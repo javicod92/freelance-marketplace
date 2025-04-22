@@ -5,6 +5,10 @@
   "scripts": {
     "start:api": "cd backend/api-gateway && pnpm dev",
     "start:listings": "cd backend/listings-service && pnpm dev",
-    "start:users": "cd backend/users-service && pnpm dev"
+    "start:users": "cd backend/users-service && pnpm dev",
+    "start:all": "concurrently \"pnpm start:api\" \"pnpm start:listings\" \"pnpm start:users\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }

@@ -11,7 +11,7 @@ export const getListingsWithUsers = async (_req, res) => {
       listings.map(async (listing) => {
         try {
           const userResponse = await axios.get(
-            `http://localhost:3001/auth/users/${listing.userId}`
+            `http://localhost:5001/auth/user/${listing.userId}`
           );
 
           return {

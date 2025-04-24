@@ -10,7 +10,7 @@ import { authenticateToken } from "../middlewares/auth.js";
 
 const router = Router();
 
-router.get("/", getAllListings);
+router.get("/", authenticateToken, getAllListings);
 router.post("/", authenticateToken, createListing);
 router.get("/:id", getListingById);
 router.put("/:id", updateListing);

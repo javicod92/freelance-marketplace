@@ -17,6 +17,6 @@ COPY . .
 RUN pnpm generate
 
 # Expón el puerto
-EXPOSE 3001
+EXPOSE 5001
 
 CMD ["pnpm", "dev"]

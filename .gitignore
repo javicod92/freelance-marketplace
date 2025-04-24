@@ -40,3 +40,6 @@ coverage/
 # SQLite files (por si se usan en desarrollo)
 **/*.sqlite
 **/*.sqlite-journal
+
+# Prisma Client
+backend/**/src/prisma/generated/

@@ -36,7 +36,7 @@ services:
     depends_on:
       - users-db
     ports:
-      - "3001:3001"
+      - "5001:5001"
       - "5555:5555"
     working_dir: /app
     command: pnpm dev
@@ -52,7 +52,7 @@ services:
     depends_on:
       - listings-db
     ports:
-      - "3002:3002"
+      - "5002:5002"
     working_dir: /app
     command: pnpm dev
     networks:
@@ -63,7 +63,7 @@ services:
     build:
       context: ./backend/api-gateway
     ports:
-      - "3000:3000"
+      - "5000:5000"
     depends_on:
       - users-service
       - listings-service

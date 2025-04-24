@@ -2,9 +2,7 @@
 **/node_modules/
 
 # Archivos de entorno
-**/.env
-**/.env.*.local
-.env
+**/.env**
 
 # Archivos de base de datos de Prisma
 **/prisma/dev.db

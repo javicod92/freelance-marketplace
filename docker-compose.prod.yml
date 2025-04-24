@@ -53,7 +53,9 @@ services:
     ports:
       - "5002:5002"
     working_dir: /app
-    command: pnpm dev
+    command: pnpm start
+    env_file:
+      - ./backend/listings-service/.env.production
     networks:
       - freelance-network
 

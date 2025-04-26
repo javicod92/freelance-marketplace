@@ -6,11 +6,14 @@ export const getListingsWithUsers = async (req, res) => {
     const authHeader = req.headers.authorization;
 
     // 2. Llamamos al servicio de listings con el token
-    const listingsResponse = await axios.get("http://localhost:5002/listing", {
-      headers: {
-        Authorization: authHeader, // Paso el token para validar
-      },
-    });
+    const listingsResponse = await axios.get(
+      `${process.env.LISTINGS_SERVICE_API}`,
+      {
+        headers: {
+          Authorization: authHeader, // Paso el token para validar
+        },
+      }
+    );
 
     const listings = listingsResponse.data;
     console.log("📦 Listings recibidos:", listings);
@@ -20,7 +23,7 @@ export const getListingsWithUsers = async (req, res) => {
       listings.map(async (listing) => {
         try {
           const userResponse = await axios.get(
-            `http://localhost:5001/auth/user/${listing.userId}`,
+            `${process.env.USERS_SERVICE_API}/${listing.userId}`,
             {
               headers: {
                 Authorization: authHeader, // Paso el token para validad

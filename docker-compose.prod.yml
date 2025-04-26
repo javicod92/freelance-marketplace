@@ -68,12 +68,14 @@ services:
     depends_on:
       - users-service
       - listings-service
+    working_dir: /app
+    command: pnpm start
     networks:
       - freelance-network
     volumes:
       - ./backend/api-gateway/src:/app/src
     env_file:
-      - ./backend/api-gateway/.env
+      - ./backend/api-gateway/.env.production
 
 volumes:
   postgres-data:

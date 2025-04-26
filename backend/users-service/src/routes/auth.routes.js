@@ -7,10 +7,10 @@ import {
   getAllUsers,
   getUserById,
 } from "../controllers/auth.controller.js";
-import { authenticateToken } from "../middleware/authMiddleware.js";
-import { validate } from "../middleware/validate.js";
+import { authenticateToken } from "shared/middleware/authMiddleware.js";
+import { validate } from "shared/middleware/validate.js";
 import { loginSchema, registerSchema } from "../validations/auth.schema.js";
-import { authorizeRole } from "../middleware/roleMiddleware.js";
+import { authorizeRole } from "shared/middleware/roleMiddleware.js";
 
 const router = express.Router();
 

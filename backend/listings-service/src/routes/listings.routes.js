@@ -6,7 +6,7 @@ import {
   getListingById,
   updateListing,
 } from "../controllers/listings.controller.js";
-import { authenticateToken } from "../middlewares/auth.js";
+import { authenticateToken } from "@freelance-marketplace/shared";
 
 const router = Router();
 

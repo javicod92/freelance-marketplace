@@ -39,6 +39,9 @@ importers:
 
   backend/listings-service:
     dependencies:
+      '@freelance-marketplace/shared':
+        specifier: file:../shared
+        version: link:../shared
       '@prisma/client':
         specifier: ^6.5.0
         version: 6.6.0(prisma@6.6.0)
@@ -54,9 +57,6 @@ importers:
       prisma:
         specifier: ^6.5.0
         version: 6.6.0
-      shared:
-        specifier: file:../shared
-        version: link:../shared
     devDependencies:
       dotenv-cli:
         specifier: ^8.0.0
@@ -73,6 +73,9 @@ importers:
 
   backend/users-service:
     dependencies:
+      '@freelance-marketplace/shared':
+        specifier: file:../shared
+        version: link:../shared
       '@prisma/client':
         specifier: ^6.5.0
         version: 6.6.0(prisma@6.6.0)
@@ -94,9 +97,6 @@ importers:
       prisma:
         specifier: ^6.5.0
         version: 6.6.0
-      shared:
-        specifier: file:../shared
-        version: link:../shared
       zod:
         specifier: ^3.24.2
         version: 3.24.3

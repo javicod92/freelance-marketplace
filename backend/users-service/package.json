@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "dotenv -e .env -- nodemon src/index.js",
-    "start": "node src/index.js",
+    "start": "pnpm prisma migrate deploy && node src/index.js",
     "migrate": "prisma migrate dev",
     "generate": "prisma generate"
   },

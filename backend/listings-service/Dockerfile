@@ -1,18 +1,20 @@
 # Usamos Node LTS
 FROM node:latest
 
+# Copiar shared fuera de app
+COPY shared/ ./shared
+
 # Creamos directorio de trabajo
 WORKDIR /app
 
-# Copia SOLO los archivos necesarios para instalar dependencias
-COPY package.json ./
+# Copiar SOLO el package.json de users-service + la carpeta shared
+COPY listings-service/package.json ./
 
-
-# Instalamos dependencias
+# Instalar dependencias (si quieres todas, quita el --prod)
 RUN npm install -g pnpm && pnpm install --prod
 
 # Copiamos el codigo
-COPY . .
+COPY listings-service ./
 
 # Build Prisma Client
 RUN pnpm prisma generate

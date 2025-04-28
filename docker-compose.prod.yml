@@ -32,7 +32,8 @@ services:
   users-service:
     container_name: users-service
     build:
-      context: ./backend/users-service
+      context: ./backend
+      dockerfile: users-service/Dockerfile
     depends_on:
       - users-db
     ports:
@@ -47,7 +48,8 @@ services:
   listings-service:
     container_name: listings-service
     build:
-      context: ./backend/listings-service
+      context: ./backend
+      dockerfile: listings-service/Dockerfile
     depends_on:
       - listings-db
     ports:

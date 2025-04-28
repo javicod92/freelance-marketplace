@@ -12,8 +12,12 @@ const router = Router();
 
 router.get("/", authenticateToken, getAllListings);
 router.post("/", authenticateToken, createListing);
-router.get("/:id", getListingById);
-router.put("/:id", updateListing);
-router.delete("/:id", deleteListing);
+router.get("/:id", authenticateToken, getListingById);
+router.put("/:id", authenticateToken, updateListing);
+router.delete("/:id", authenticateToken, deleteListing);
+
+/* Attention: GET, POST, PUT and DELETE methods must not have /:id parameters, since a registered
+user may have the possibility to manipulate all data of any user. To avoid this,
+the user id must be extracted directly from the token. */
 
 export default router;

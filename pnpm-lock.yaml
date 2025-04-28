@@ -54,6 +54,9 @@ importers:
       prisma:
         specifier: ^6.5.0
         version: 6.6.0
+      shared:
+        specifier: file:../shared
+        version: link:../shared
     devDependencies:
       dotenv-cli:
         specifier: ^8.0.0
